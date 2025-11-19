@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Site - Widget Converto</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2563eb;
+      color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      background: white;
+      color: #667eea;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      padding: 2rem;
+      background: #f9fafb;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    .notice {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    .notice h3 {
+      color: #92400e;
+      margin-bottom: 0.5rem;
+    }
+
+    .notice p {
+      color: #78350f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🚀 MinhaEmpresa.pt</div>
+      <ul class="nav-links">
+        <li>Início</li>
+        <li>Serviços</li>
+        <li>Sobre</li>
+        <li>Contacto</li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Bem-vindo ao nosso Website</h1>
+    <p>Esta é uma página de demonstração do Widget Converto</p>
+    <button class="btn">Saiba Mais</button>
+  </section>
+
+  <div class="content">
+    <div class="notice">
+      <h3>⚡ Widget Converto Ativo!</h3>
+      <p>
+        Olha para o canto inferior direito! 👉 Vês o botão azul? Esse é o Widget Converto em ação!
+        Clica nele para testar a captura de leads!
+      </p>
+    </div>
+
+    <h2 style="text-align: center; margin-bottom: 1rem;">Nossos Serviços</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">💼</div>
+        <h3>Consultoria</h3>
+        <p>Ajudamos a sua empresa a crescer com estratégias personalizadas</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌐</div>
+        <h3>Websites</h3>
+        <p>Criamos websites modernos e responsivos para o seu negócio</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📱</div>
+        <h3>Marketing Digital</h3>
+        <p>Aumentamos a sua presença online com campanhas eficazes</p>
+      </div>
+    </div>
+
+    <div style="background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px; padding: 2rem; margin-top: 3rem;">
+      <h3 style="color: #15803d; margin-bottom: 1rem;">✅ Como Funciona:</h3>
+      <ol style="color: #166534; padding-left: 1.5rem; line-height: 2;">
+        <li>O cliente coloca o código no site dele</li>
+        <li>O widget aparece no canto inferior direito</li>
+        <li>Visitantes clicam e interagem com o chatbot</li>
+        <li>Leads são capturados automaticamente</li>
+        <li>O dono do site vê os leads no dashboard</li>
+      </ol>
+    </div>
+
+    <div style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 2rem; margin-top: 2rem;">
+      <h3 style="color: #1e40af; margin-bottom: 1rem;">🧪 Teste o Widget:</h3>
+      <p style="color: #1e3a8a; margin-bottom: 1rem;">
+        Este é um exemplo real de como o widget funciona! Abre a consola do browser (F12) 
+        e clica no widget - vais ver os logs quando um lead for capturado!
+      </p>
+      <p style="color: #1e3a8a;">
+        <strong>Dica:</strong> Experimenta os 3 botões: Ver Horário, Ver Serviços e Quero ser contactado!
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 MinhaEmpresa.pt - Powered by Widget Converto 🚀</p>
+  </footer>
+
+  <!-- WIDGET CONVERTO - Cole este código antes do </body> -->
+  <script>
+    window.convertoConfig = {
+      clientId: 'demo_abc123',
+      assistantName: 'Assistente Virtual',
+      primaryColor: '#2563eb',
+      welcomeMessage: 'Olá! Como posso ajudar-te hoje? 😊',
+      companyName: 'MinhaEmpresa.pt',
+      schedule: {
+        days: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
+        openTime: '09:00',
+        closeTime: '18:00'
+      },
+      services: ['Consultoria', 'Website Profissional', 'Marketing Digital']
+    };
+  </script>
+  <script src="/widget.js"></script>
+</body>
+</html>

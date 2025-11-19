@@ -1,0 +1,38 @@
+====================================
+  COMANDOS GIT - COPIAR E COLAR
+====================================
+
+Abre o PowerShell ou Git Bash na pasta do projeto e copia estes comandos:
+
+# 1. Inicializar Git
+git init
+
+# 2. Adicionar todos os ficheiros
+git add .
+
+# 3. Criar commit
+git commit -m "🚀 Deploy inicial completo - EuConverto.com"
+
+# 4. Adicionar repositório remoto
+git remote add origin https://github.com/marcosthenomad-source/euconverto.com.git
+
+# 5. Criar branch main
+git branch -M main
+
+# 6. Enviar para GitHub
+git push -u origin main --force
+
+====================================
+
+Se pedir login:
+- Username: marcosthenomad-source
+- Password: [USA UM PERSONAL ACCESS TOKEN]
+
+Como criar token:
+1. GitHub > Settings > Developer settings
+2. Personal access tokens > Tokens (classic)
+3. Generate new token (classic)
+4. Marca: repo (tudo)
+5. Copia e usa como password
+
+====================================

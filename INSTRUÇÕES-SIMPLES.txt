@@ -1,0 +1,243 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║        📚 GUIA SIMPLES - EUCONVERTO.COM (PARA LEIGOS!)        ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════
+  🎯 TU NUNCA VAIS EDITAR CÓDIGO!
+═══════════════════════════════════════════════════════════════
+
+Vais SEMPRE fazer isto:
+
+1. Vens ao chat (aqui)
+2. Dizes o que queres mudar
+3. Eu mudo o código
+4. Tu fazes DUPLO-CLIQUE num ficheiro
+5. PRONTO! Está online!
+
+
+═══════════════════════════════════════════════════════════════
+  📁 OS 2 FICHEIROS MÁGICOS:
+═══════════════════════════════════════════════════════════════
+
+Na pasta "euconverto.com" tens:
+
+┌─────────────────────────────────────────────────────────────┐
+│  📄 redeploy.bat                                            │
+│  ↳ Duplo-clique = Atualiza BACKEND (login, base dados, API)│
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│  📄 deploy-site.bat                                         │
+│  ↳ Duplo-clique = Atualiza SITE (textos, cores, design)    │
+└─────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════
+  ✏️ EXEMPLO 1: MUDAR TEXTO DA HOMEPAGE
+═══════════════════════════════════════════════════════════════
+
+TU DIZES NO CHAT:
+"Quero mudar o título para 'Converta Visitantes em Clientes'"
+
+EU FAÇO:
+(Mexo no código, demora 30 segundos)
+
+EU DIGO:
+"Pronto! Agora duplo-clique em 'deploy-site.bat'"
+
+TU FAZES:
+1. Vais à pasta euconverto.com
+2. DUPLO-CLIQUE em "deploy-site.bat"
+3. Aparece janela preta
+4. Esperas 1-2 minutos
+5. Diz "✅ SITE ONLINE!"
+6. Fechas a janela
+
+RESULTADO:
+Vais a euconverto.com → Título mudou! ✨
+
+
+═══════════════════════════════════════════════════════════════
+  🔧 EXEMPLO 2: ADICIONAR CAMPO NO REGISTO
+═══════════════════════════════════════════════════════════════
+
+TU DIZES NO CHAT:
+"Quero adicionar campo 'empresa' no registo"
+
+EU FAÇO:
+(Mexo no código do servidor)
+
+EU DIGO:
+"Pronto! Agora duplo-clique em 'redeploy.bat'"
+
+TU FAZES:
+1. DUPLO-CLIQUE em "redeploy.bat"
+2. Aparece janela preta
+3. Esperas 30 segundos
+4. Diz "✅ DEPLOY COMPLETO!"
+5. Fechas
+
+RESULTADO:
+Registo agora tem campo "empresa"! ✅
+
+
+═══════════════════════════════════════════════════════════════
+  💳 EXEMPLO 3: ADICIONAR STRIPE (PAGAMENTOS)
+═══════════════════════════════════════════════════════════════
+
+TU DIZES NO CHAT:
+"Quero adicionar pagamentos com Stripe"
+
+EU DIGO:
+"Vai ao Stripe e copia a 'Secret Key'"
+
+TU FAZES:
+1. Vais a stripe.com
+2. Login
+3. Developers > API Keys
+4. Copias "Secret key" (começa com sk_...)
+5. Colas no chat
+
+EU FAÇO:
+(Integro o Stripe no código)
+
+APARECE AQUI:
+┌────────────────────────────┐
+│ 🔐 STRIPE_SECRET_KEY      │
+│ Cole a chave: [_______]   │
+│        [Guardar]          │
+└────────────────────────────┘
+
+TU FAZES:
+1. Ctrl+V (colar a chave)
+2. Clica "Guardar"
+3. DUPLO-CLIQUE em "redeploy.bat"
+4. DUPLO-CLIQUE em "deploy-site.bat"
+5. Espera 2 minutos
+
+RESULTADO:
+Sistema de pagamentos funcional! 💰
+Clientes pagam → € cai na tua conta Stripe!
+
+
+═══════════════════════════════════════════════════════════════
+  🎯 QUAL FICHEIRO USAR?
+═══════════════════════════════════════════════════════════════
+
+┌─────────────────────────┬──────────────────────────────────┐
+│ O QUE MUDASTE           │ FICHEIRO                         │
+├─────────────────────────┼──────────────────────────────────┤
+│ Texto, cores, botões    │ deploy-site.bat                  │
+│ Design, imagens         │ deploy-site.bat                  │
+│ Layout da página        │ deploy-site.bat                  │
+├─────────────────────────┼──────────────────────────────────┤
+│ Login, registo          │ redeploy.bat                     │
+│ Base de dados           │ redeploy.bat                     │
+│ API, sistema            │ redeploy.bat                     │
+│ Pagamentos, emails      │ redeploy.bat                     │
+├─────────────────────────┼──────────────────────────────────┤
+│ Ambos (mudança grande)  │ redeploy.bat + deploy-site.bat   │
+└─────────────────────────┴──────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════
+  ⚠️ SE DER ERRO:
+═══════════════════════════════════════════════════════════════
+
+1. Tira print do erro
+2. Manda no chat
+3. Eu resolvo
+4. Tentas outra vez
+
+NUNCA tentes "resolver sozinho" mexendo em código!
+
+
+═══════════════════════════════════════════════════════════════
+  🔐 ADICIONAR CHAVES DE APIS (Stripe, SendGrid, etc):
+═══════════════════════════════════════════════════════════════
+
+PROCESSO:
+
+1. Eu integro o serviço no código
+
+2. Aparece uma caixa AQUI no chat:
+   ┌────────────────────────┐
+   │ 🔐 NOME_DA_CHAVE      │
+   │ Cole a chave: [____]  │
+   │      [Guardar]        │
+   └────────────────────────┘
+
+3. Tu vais ao site do serviço (Stripe, etc)
+
+4. Copias a chave/password
+
+5. Colas na caixa
+
+6. Clicas "Guardar"
+
+7. DUPLO-CLIQUE em "redeploy.bat"
+
+8. PRONTO! Funcional!
+
+NOTA: As chaves ficam seguras no Supabase, encriptadas!
+
+
+═══════════════════════════════════════════════════════════════
+  📞 PRECISO DE AJUDA!
+═══════════════════════════════════════════════════════════════
+
+Vem ao chat e diz:
+
+❌ NÃO DIGAS: "Deu erro no webpack loader module..."
+✅ DIZ: "Cliquei no ficheiro e deu erro, aqui está o print"
+
+❌ NÃO DIGAS: "O React component não renderiza..."
+✅ DIZ: "Mudei o título mas não aparece no site"
+
+❌ NÃO DIGAS: "A API retorna 401..."
+✅ DIZ: "Não consigo fazer login"
+
+Fala como se estivesses a falar com o apoio ao cliente! 😊
+
+
+═══════════════════════════════════════════════════════════════
+  ✅ CHECKLIST INICIAL (SÓ 1 VEZ):
+═══════════════════════════════════════════════════════════════
+
+Antes de usares os ficheiros pela PRIMEIRA vez:
+
+[ ] Backend já está online (Supabase) ✅ JÁ FEITO!
+[ ] Conta Vercel criada
+[ ] Domínio euconverto.com ligado ao Vercel
+[ ] Primeiro deploy feito
+
+Vê o ficheiro "SETUP-VERCEL.md" para ajuda!
+
+
+═══════════════════════════════════════════════════════════════
+  🎓 CONCEITOS BÁSICOS (OPCIONAL):
+═══════════════════════════════════════════════════════════════
+
+FRONTEND = O que os utilizadores VÊM
+- Textos, botões, cores, imagens
+- Ficheiro: deploy-site.bat
+
+BACKEND = O que está "por trás"
+- Login, base de dados, pagamentos
+- Ficheiro: redeploy.bat
+
+API = "Ponte" entre frontend e backend
+- Quando alguém clica "Login", o frontend fala com o backend via API
+
+
+═══════════════════════════════════════════════════════════════
+  🚀 BOA SORTE!
+═══════════════════════════════════════════════════════════════
+
+Agora tens um sistema super profissional SEM precisar de saber código!
+
+Qualquer dúvida: vem ao chat! 💪
+

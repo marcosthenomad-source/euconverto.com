@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Site do Cliente | EuConverto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .cta {
+            background: #667eea;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .cta button {
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .cta button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .demo-notice {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            color: #92400e;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-notice">
+        🎯 Esta é uma página de DEMONSTRAÇÃO para testar o widget EuConverto
+    </div>
+
+    <header>
+        <h1>✨ Empresa Demo</h1>
+        <p>Este é um exemplo de website de cliente onde o widget EuConverto está instalado</p>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; font-size: 32px; margin-bottom: 20px;">
+            Os Nossos Serviços
+        </h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 18px;">
+            Teste o widget no canto inferior direito! →
+        </p>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>💼 Consultoria</h3>
+                <p>
+                    Ajudamos a sua empresa a crescer com estratégias personalizadas 
+                    e comprovadas no mercado.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🚀 Desenvolvimento</h3>
+                <p>
+                    Criamos websites e aplicações modernas que convertem visitantes 
+                    em clientes.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎨 Design</h3>
+                <p>
+                    Designs únicos e profissionais que destacam a sua marca da 
+                    concorrência.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📈 Marketing</h3>
+                <p>
+                    Estratégias de marketing digital para aumentar a sua visibilidade 
+                    online.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>💬 Suporte</h3>
+                <p>
+                    Atendimento personalizado para garantir o sucesso dos seus 
+                    projetos.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🔧 Manutenção</h3>
+                <p>
+                    Mantemos tudo a funcionar perfeitamente para que se possa 
+                    focar no negócio.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Pronto para começar?</h2>
+        <p>Clique no chat no canto inferior direito para falar connosco!</p>
+        <button onclick="alert('Use o widget de chat no canto inferior direito! →')">
+            💬 Falar Connosco
+        </button>
+    </div>
+
+    <footer>
+        <p>© 2025 Empresa Demo - Powered by <strong>EuConverto.com</strong></p>
+        <p style="opacity: 0.6; margin-top: 10px;">
+            Este é um site de demonstração para testar o widget de chatbot
+        </p>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- WIDGET EUCONVERTO - INSTALAÇÃO -->
+    <!-- ============================================ -->
+    <!-- 
+        INSTRUÇÕES:
+        1. Faça login no dashboard do EuConverto
+        2. Vá para "Assistente" 
+        3. Personalize como quiser
+        4. Copie o código gerado
+        5. Cole aqui (substitua o código abaixo)
+    -->
+    <script>
+      // CÓDIGO DE EXEMPLO - Substitua pelo seu código do dashboard
+      window.euconvertoConfig = {
+        assistantId: 'ast_COLE_SEU_USER_ID_AQUI'
+      };
+    </script>
+    <script src="/widget.js"></script>
+    <!-- ============================================ -->
+
+</body>
+</html>

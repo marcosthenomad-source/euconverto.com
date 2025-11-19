@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Teste de Endpoints - EuConverto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .endpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .token-display {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            word-break: break-all;
+            margin-top: 10px;
+            border: 1px solid #dee2e6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-online {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-offline {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste de Endpoints - EuConverto</h1>
+
+        <!-- Login -->
+        <div class="card">
+            <h2>🔐 1. Login <span id="loginStatus" class="status-badge status-offline">Offline</span></h2>
+            <div class="input-group">
+                <label>Email:</label>
+                <input type="email" id="email" placeholder="seu-email@example.com" value="">
+            </div>
+            <div class="input-group">
+                <label>Password:</label>
+                <input type="password" id="password" placeholder="Sua password" value="">
+            </div>
+            <button onclick="testLogin()">🔑 Fazer Login</button>
+            <div id="tokenDisplay" class="token-display" style="display: none;">
+                <strong>Access Token:</strong><br>
+                <span id="tokenValue"></span>
+            </div>
+        </div>
+
+        <!-- Endpoints -->
+        <div class="card">
+            <h2>🔌 2. Testar Endpoints</h2>
+            <p style="margin-bottom: 15px; color: #666;">Faça login primeiro para testar os endpoints autenticados.</p>
+            
+            <div class="endpoint-grid">
+                <button onclick="testHealthCheck()">❤️ Health Check</button>
+                <button onclick="testGetUser()">👤 GET /user</button>
+                <button onclick="testGetAssistant()">🤖 GET /assistant</button>
+                <button onclick="testGetLeads()">📋 GET /leads</button>
+                <button onclick="testGetEvents()">📅 GET /events</button>
+                <button onclick="testGetTags()">🏷️ GET /tags</button>
+                <button onclick="testCreateEvent()">➕ Criar Evento</button>
+                <button onclick="testCreateTag()">➕ Criar Tag</button>
+                <button onclick="testAllEndpoints()">🚀 Testar Todos</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="card">
+            <h2>📊 Resultados</h2>
+            <button onclick="clearResults()">🗑️ Limpar Resultados</button>
+            <div id="results" class="results"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://eyxcgkztplqkfwjzdflt.supabase.co/functions/v1/make-server-12d56551';
+        let accessToken = localStorage.getItem('test_access_token') || '';
+
+        // Update login status on load
+        if (accessToken) {
+            updateLoginStatus(true);
+            document.getElementById('tokenDisplay').style.display = 'block';
+            document.getElementById('tokenValue').textContent = accessToken;
+        }
+
+        function updateLoginStatus(isLoggedIn) {
+            const statusBadge = document.getElementById('loginStatus');
+            if (isLoggedIn) {
+                statusBadge.textContent = 'Online';
+                statusBadge.className = 'status-badge status-online';
+            } else {
+                statusBadge.textContent = 'Offline';
+                statusBadge.className = 'status-badge status-offline';
+            }
+        }
+
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const item = document.createElement('div');
+            item.className = `result-item ${type}`;
+            item.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong> - ${message}`;
+            results.insertBefore(item, results.firstChild);
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        async function testLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                addResult('❌ Por favor, preencha email e password', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A fazer login...', 'info');
+                
+                const response = await fetch(`${API_URL}/auth/signin`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    accessToken = data.accessToken;
+                    localStorage.setItem('test_access_token', accessToken);
+                    
+                    document.getElementById('tokenDisplay').style.display = 'block';
+                    document.getElementById('tokenValue').textContent = accessToken;
+                    
+                    updateLoginStatus(true);
+                    addResult(`✅ Login bem-sucedido! User ID: ${data.userId}`, 'success');
+                    addResult(`📝 Access token guardado no localStorage`, 'success');
+                } else {
+                    addResult(`❌ Erro no login: ${data.error || 'Erro desconhecido'}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao conectar ao servidor: ${error.message}`, 'error');
+            }
+        }
+
+        async function testHealthCheck() {
+            try {
+                addResult('🔄 A testar health check...', 'info');
+                
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ Health Check OK: ${JSON.stringify(data)}`, 'success');
+                } else {
+                    addResult(`❌ Health Check falhou: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro no health check: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetUser() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A buscar dados do utilizador...', 'info');
+                
+                const response = await fetch(`${API_URL}/user`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ GET /user - Sucesso!<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ GET /user - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao buscar utilizador: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetAssistant() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A buscar configuração do assistente...', 'info');
+                
+                const response = await fetch(`${API_URL}/assistant`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ GET /assistant - Sucesso!<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ GET /assistant - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao buscar assistente: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetLeads() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A buscar leads...', 'info');
+                
+                const response = await fetch(`${API_URL}/leads`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ GET /leads - Sucesso! ${Array.isArray(data) ? data.length : 0} leads encontrados<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ GET /leads - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao buscar leads: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetEvents() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A buscar eventos...', 'info');
+                
+                const response = await fetch(`${API_URL}/events`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ GET /events - Sucesso! ${Array.isArray(data) ? data.length : 0} eventos encontrados<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ GET /events - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao buscar eventos: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetTags() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A buscar tags...', 'info');
+                
+                const response = await fetch(`${API_URL}/tags`, {
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ GET /tags - Sucesso! ${Array.isArray(data) ? data.length : 0} tags encontradas<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ GET /tags - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao buscar tags: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCreateEvent() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A criar evento de teste...', 'info');
+                
+                const eventData = {
+                    title: 'Evento de Teste',
+                    startDate: new Date(Date.now() + 86400000).toISOString(), // Tomorrow
+                    endDate: new Date(Date.now() + 90000000).toISOString(),
+                    description: 'Este é um evento de teste criado automaticamente',
+                    allDay: false,
+                    repeat: 'never',
+                    tags: []
+                };
+
+                const response = await fetch(`${API_URL}/events`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(eventData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ POST /events - Evento criado com sucesso!<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ POST /events - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao criar evento: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCreateTag() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            try {
+                addResult('🔄 A criar tag de teste...', 'info');
+                
+                const tagData = {
+                    name: `Tag Teste ${Date.now()}`,
+                    color: '#' + Math.floor(Math.random()*16777215).toString(16)
+                };
+
+                const response = await fetch(`${API_URL}/tags`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(tagData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addResult(`✅ POST /tags - Tag criada com sucesso!<br><pre>${JSON.stringify(data, null, 2)}</pre>`, 'success');
+                } else {
+                    addResult(`❌ POST /tags - Erro: ${data.error || response.status}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao criar tag: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAllEndpoints() {
+            if (!accessToken) {
+                addResult('❌ Por favor, faça login primeiro!', 'error');
+                return;
+            }
+
+            addResult('🚀 A testar todos os endpoints...', 'info');
+            
+            await testHealthCheck();
+            await new Promise(r => setTimeout(r, 500));
+            
+            await testGetUser();
+            await new Promise(r => setTimeout(r, 500));
+            
+            await testGetAssistant();
+            await new Promise(r => setTimeout(r, 500));
+            
+            await testGetLeads();
+            await new Promise(r => setTimeout(r, 500));
+            
+            await testGetEvents();
+            await new Promise(r => setTimeout(r, 500));
+            
+            await testGetTags();
+            await new Promise(r => setTimeout(r, 500));
+            
+            addResult('✅ Teste completo finalizado!', 'success');
+        }
+    </script>
+</body>
+</html>

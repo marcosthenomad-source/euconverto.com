@@ -1,0 +1,82 @@
+===============================================
+  📥 ACABASTE DE DESCARREGAR O EUCONVERTO!
+===============================================
+
+✅ ESTÁ TUDO AQUI! Agora segue estes passos:
+
+
+🎯 PASSO 1: INSTALAR GIT (se ainda não tens)
+---------------------------------------------
+👉 https://git-scm.com/download/win
+
+Depois de instalar, REINICIA O TERMINAL!
+
+
+🎯 PASSO 2: CRIAR TOKEN GITHUB
+---------------------------------------------
+👉 https://github.com/settings/tokens
+
+1. Clica "Generate new token (classic)"
+2. Nome: "Deploy EuConverto"
+3. Marca checkbox "repo" (todas as opções)
+4. Clica "Generate token"
+5. COPIA O TOKEN (só aparece uma vez!)
+
+
+🎯 PASSO 3: ENVIAR PARA GITHUB
+---------------------------------------------
+Duplo-clique no ficheiro:
+👉 git-push-tudo.bat
+
+Se pedir login:
+- Username: marcosthenomad-source
+- Password: (cola o token que copiaste)
+
+
+🎯 PASSO 4: CONFIGURAR SECRETS
+---------------------------------------------
+👉 https://github.com/marcosthenomad-source/euconverto.com/settings/secrets/actions
+
+Adiciona 2 secrets:
+
+Secret 1:
+- Name: SUPABASE_PROJECT_ID
+- Value: eyxcgkztplqkfwjzdflt
+
+Secret 2:
+- Name: SUPABASE_ACCESS_TOKEN
+- Value: (cria em https://supabase.com/dashboard/account/tokens)
+
+
+🎯 PASSO 5: INSTALAR VERCEL CLI
+---------------------------------------------
+Abre terminal e executa:
+
+npm install -g vercel
+
+
+🎯 PASSO 6: FAZER DEPLOY
+---------------------------------------------
+Duplo-clique no ficheiro:
+👉 deploy-site.bat
+
+
+===============================================
+  ✅ PRONTO! DEMORA 6 MINUTOS!
+===============================================
+
+
+📚 DOCUMENTAÇÃO COMPLETA:
+- README.md                    (visão geral)
+- FAZER-DEPLOY-AGORA.md       (guia detalhado)
+- COMO-DESCARREGAR-TUDO.md    (este guia)
+
+
+🆘 PROBLEMAS?
+Abre o ficheiro: FAZER-DEPLOY-AGORA.md
+Tem troubleshooting completo!
+
+
+===============================================
+  AGORA VAI! 🚀🔥
+===============================================
