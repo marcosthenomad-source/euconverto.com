@@ -4,10 +4,11 @@
   "description": "Chatbot inteligente para websites - Captura leads dos teus clientes",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npx vite build",
     "preview": "vite preview",
     "deploy": "vercel --prod",
-    "deploy:backend": "supabase functions deploy make-server-12d56551 --project-ref eyxcgkztplqkfwjzdflt"
+    "deploy:backend": "supabase functions deploy make-server-12d56551 --project-ref eyxcgkztplqkfwjzdflt",
+    "postinstall": "chmod +x node_modules/.bin/vite || true"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.84.0",
